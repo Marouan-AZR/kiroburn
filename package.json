@@ -6,13 +6,29 @@
   "bin": {
     "kiroburn": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "menubar",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "start": "node dist/cli.js"
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": ["kiro", "cli", "token-usage", "cost-tracking", "tui", "dashboard"],
+  "keywords": ["kiro", "kiro-cli", "token-usage", "cost-tracking", "tui", "dashboard", "ai-coding"],
+  "author": "Marouane Azrour",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marouanazrour/kiroburn"
+  },
+  "homepage": "https://github.com/marouanazrour/kiroburn#readme",
   "dependencies": {
     "commander": "12.1.0",
     "ink": "5.1.0",

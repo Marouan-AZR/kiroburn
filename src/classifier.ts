@@ -2,7 +2,6 @@ import type { ParsedSession, TaskCategory } from "./types.js";
 
 const EDIT_TOOLS = ["write", "edit", "strReplace", "create", "insert"];
 const READ_TOOLS = ["read", "glob", "grep", "code", "search"];
-const SHELL_TOOL = "shell";
 
 const PATTERNS: [TaskCategory, { tools?: string[]; keywords?: RegExp }][] = [
   ["Testing", { keywords: /\b(test|jest|vitest|pytest|spec|coverage)\b/i }],

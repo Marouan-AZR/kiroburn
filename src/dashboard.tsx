@@ -208,6 +208,8 @@ function Dashboard({ initialPeriod }: { initialPeriod?: string }) {
 
   const period = PERIODS[periodIdx];
   const { from, to } = getPeriodDates(period);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ = tick; // ensure re-render on tick change
   const sessions = getAllSessions(from, to);
   const overview = computeOverview(sessions);
   const daily = computeDaily(sessions);

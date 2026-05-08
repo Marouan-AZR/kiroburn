@@ -6,6 +6,12 @@ Interactive TUI dashboard + macOS menu bar for tracking token usage, cost, and a
 
 ![KiroBurn Dashboard](assets/dashboard.png)
 
+## Why KiroBurn?
+
+[CodeBurn](https://github.com/getagentseal/codeburn) is great for tracking token usage across many AI coding tools, but it **doesn't support Kiro CLI sessions**. It only reads the IDE extension format (`~/Library/Application Support/Kiro/User/globalStorage/`), not the CLI format (`~/.kiro/sessions/cli/`).
+
+KiroBurn fills that gap — purpose-built for Kiro CLI users who want visibility into their token spend.
+
 ## Features
 
 - **Cost tracking** — Prices every session using actual model rates (Opus, Sonnet)
@@ -107,6 +113,10 @@ menubar/
 3. Commit your changes (`git commit -m 'Add my feature'`)
 4. Push (`git push origin feat/my-feature`)
 5. Open a Pull Request
+
+## Credits
+
+Inspired by [CodeBurn](https://github.com/getagentseal/codeburn). Pricing data from [LiteLLM](https://github.com/BerriAI/litellm).
 
 ## License
 

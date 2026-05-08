@@ -17,7 +17,7 @@ function estimateTokens(text: string): number {
 }
 
 function extractProject(cwd: string): string {
-  const parts = cwd.split("/");
+  const parts = cwd.split(/[/\\]/);
   return parts[parts.length - 1] || cwd;
 }
 

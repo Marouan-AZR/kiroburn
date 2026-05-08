@@ -1,8 +1,10 @@
 import { Command } from "commander";
 import { getAllSessions } from "./parser.js";
-import { computeOverview, computeDaily, sessionCost, formatCost, formatTokens } from "./pricing.js";
+import { loadPrices, computeOverview, computeDaily, sessionCost, formatCost, formatTokens } from "./pricing.js";
 import { classifySessions } from "./classifier.js";
 import { renderDashboard } from "./dashboard.js";
+
+await loadPrices();
 
 const program = new Command();
 
