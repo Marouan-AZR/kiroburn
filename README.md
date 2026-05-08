@@ -4,8 +4,6 @@
 
 Interactive TUI dashboard + macOS menu bar for tracking token usage, cost, and activity across your [Kiro CLI](https://kiro.dev/cli/) sessions.
 
-![KiroBurn Dashboard](assets/dashboard.png)
-
 ## Why KiroBurn?
 
 [CodeBurn](https://github.com/getagentseal/codeburn) is great for tracking token usage across many AI coding tools, but it **doesn't support Kiro CLI sessions**. It only reads the IDE extension format (`~/Library/Application Support/Kiro/User/globalStorage/`), not the CLI format (`~/.kiro/sessions/cli/`).
