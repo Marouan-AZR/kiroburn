@@ -91,7 +91,11 @@ function resolvePrice(modelId: string): { input: number; output: number } {
 
 export function calculateCost(inputTokens: number, outputTokens: number, modelId = "auto"): number {
   const p = resolvePrice(modelId);
-  return inputTokens * p.input + outputTokens * p.output;
+  // ~90% of input tokens are cache reads (10x cheaper) — standard Anthropic prompt caching
+  const cacheRate = 0.90;
+  const cachedInput = inputTokens * cacheRate;
+  const newInput = inputTokens - cachedInput;
+  return newInput * p.input + cachedInput * (p.input * 0.1) + outputTokens * p.output;
 }
 
 export function sessionCost(session: ParsedSession): number {

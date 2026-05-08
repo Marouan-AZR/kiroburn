@@ -1,6 +1,6 @@
 {
   "name": "kiroburn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "See where your Kiro CLI tokens go. TUI dashboard for token & cost tracking.",
   "type": "module",
   "bin": {
@@ -21,7 +21,15 @@
     "start": "node dist/cli.js",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["kiro", "kiro-cli", "token-usage", "cost-tracking", "tui", "dashboard", "ai-coding"],
+  "keywords": [
+    "kiro",
+    "kiro-cli",
+    "token-usage",
+    "cost-tracking",
+    "tui",
+    "dashboard",
+    "ai-coding"
+  ],
   "author": "Marouane Azrour",
   "license": "MIT",
   "repository": {
