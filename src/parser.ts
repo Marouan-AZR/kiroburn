@@ -95,6 +95,15 @@ export function parseSession(sessionId: string): ParsedSession | null {
       0
     );
 
+    // Estimate real input tokens using context_usage_percentage × context_window × requests
+    // Each API request sends the full context, so total input = avg_context × total_requests
+    const ctxWindow = meta.session_state?.rts_model_state?.model_info?.context_window_tokens ?? 200000;
+    const ctxUsages = turns.map(t => t.context_usage_percentage ?? 0);
+    const avgCtxPct = ctxUsages.length ? ctxUsages.reduce((a, b) => a + b, 0) / ctxUsages.length : 0;
+    const totalRequests = turns.reduce((s, t) => s + t.total_request_count, 0);
+    const avgInputPerRequest = Math.round(ctxWindow * avgCtxPct / 100);
+    const realInputTokens = avgInputPerRequest * totalRequests;
+
     return {
       id: meta.session_id,
       cwd: meta.cwd,
@@ -105,7 +114,7 @@ export function parseSession(sessionId: string): ParsedSession | null {
       turns: turns.length,
       toolUses: analysis.toolUses || turns.reduce((s, t) => s + t.builtin_tool_uses, 0),
       toolBreakdown: analysis.toolBreakdown,
-      estimatedInputTokens: analysis.inputTokens,
+      estimatedInputTokens: realInputTokens,
       estimatedOutputTokens: analysis.outputTokens,
       durationSecs: totalDuration,
       agentName: meta.session_state?.agent_name || "kiro_default",
