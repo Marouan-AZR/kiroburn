@@ -1,5 +1,7 @@
 # 🔥 KiroBurn
 
+> ⚠️ **Beta** — Ce projet est en phase de développement actif. N'hésitez pas à [ouvrir une issue](https://github.com/Marouan-AZR/kiroburn/issues) pour remonter vos retours, bugs ou suggestions !
+
 **See where your Kiro CLI tokens go.**
 
 Interactive TUI dashboard + macOS menu bar for tracking token usage, cost, and activity across your [Kiro CLI](https://kiro.dev/cli/) sessions.
